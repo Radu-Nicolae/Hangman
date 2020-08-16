@@ -1,5 +1,9 @@
 package hangman;
 
+import hangman.gameModes.PlayFriend;
+import hangman.gameModes.PlayWithCpu;
+import hangman.utilities.Messages;
+
 import java.util.Scanner;
 
 public class Game {

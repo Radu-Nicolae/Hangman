@@ -1,4 +1,7 @@
-package hangman;
+package hangman.gameModes;
+
+import hangman.utilities.GameUtilities;
+import hangman.utilities.Messages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,12 +122,8 @@ public class PlayFriend {
                 if (!wordLetters.contains(lett)) {
                     i++;
                     System.out.println(hangManImages.get(i - 2));
-                    GameUtilities.printBlindWord(blindWordLetters);
                 }
-                else {
-                    GameUtilities.printBlindWord(blindWordLetters);
-                }
-
+                GameUtilities.printBlindWord(blindWordLetters);
 
 
                 if (i == 8) {
@@ -166,6 +165,7 @@ public class PlayFriend {
                 blindWordLetters.clear();
                 wordLetters.clear();
                 enteredLetters.clear();
+                firstTime = true;
             }
         } while (playAgain);
 
