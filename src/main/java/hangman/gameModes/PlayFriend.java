@@ -5,6 +5,7 @@ import hangman.utilities.Messages;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class PlayFriend {
@@ -46,7 +47,7 @@ public class PlayFriend {
                         if (input.equalsIgnoreCase(player1Name) || input.equalsIgnoreCase(player2Name)) {
                             isInputInvalid = false;
                         } else {
-                            System.out.print("Please enter a valid input: ");
+                            System.out.print("Please choose one of the entered names: ");
                         }
                     }
                     while (isInputInvalid);
@@ -61,7 +62,29 @@ public class PlayFriend {
                     }
                     System.out.println("\n");
                     System.out.print("The word: ");
-                    word = scn.next();
+
+                    isInputInvalid = true;
+                    boolean errorEncountered = false;
+                    do {
+                        word = scn.next();
+                        word = word.toLowerCase();
+                        errorEncountered = false;
+                        for (int j = 0; j < word.length(); j++) {
+                            if (!((word.charAt(j) >= 30 && word.charAt(j) <= 39) || (word.charAt(j) >= 61 && word.charAt(j) <= 122))) {
+                                errorEncountered = true;
+                                break;
+                            }
+                        }
+
+                        if (errorEncountered){
+                            System.out.print("Please enter only letters and numbers: ");
+                        }
+                        else {
+                            isInputInvalid = false;
+                        }
+                    }
+                    while (isInputInvalid);
+
                     word = word.toLowerCase();
                     wordLetters = GameUtilities.getSplitTheWord(word);
                     blindWordLetters = GameUtilities.getBlindWord(word);
@@ -83,16 +106,17 @@ public class PlayFriend {
                 }
                 do {
                     letter = scn.next();
+                    letter = letter.toLowerCase();
                     if (enteredLetters.contains(letter.charAt(0))) {
                         System.out.println("You've already entered letter '" + letter.charAt(0) + "'");
                         System.out.print("Enter another letter: ");
-                    }  else {
-                        if (letter.length() == 1 && ((letter.charAt(0) >= 48 && letter.charAt(0) <= 57) || (letter.charAt(0) >= 65 && letter.charAt(0) <= 122))) {
+                    } else {
+                        if (letter.length() == 1 && ((letter.charAt(0) >= 48 && letter.charAt(0) <= 57) || (letter.charAt(0) >= 97 && letter.charAt(0) <= 122))) {
                             isInputInvalid = false;
-                        } else if (letter.length() != 1){
+                        } else if (letter.length() != 1) {
                             System.out.print("Please enter only one character: ");
                         } else {
-                            System.out.print("Please enter a letter/number:");
+                            System.out.print("Please enter a letter/number: ");
                         }
                     }
                 }
@@ -152,7 +176,7 @@ public class PlayFriend {
                 if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("no")) {
                     isInputInvalid = false;
                 } else {
-                    System.out.print("Please enter a valid input: ");
+                    System.out.print("Please enter a valid input (yes/no): ");
                 }
             }
             while (isInputInvalid);

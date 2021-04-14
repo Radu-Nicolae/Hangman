@@ -25,7 +25,7 @@ public class Game {
             if (input.equalsIgnoreCase("1") || input.equalsIgnoreCase("2")) {
                 isInputInvalid = false;
             } else {
-                System.out.println("Please enter a valid input!");
+                System.out.print("Please choose between 1 and 2: ");
             }
         }
         while (isInputInvalid);

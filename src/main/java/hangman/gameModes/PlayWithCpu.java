@@ -57,10 +57,12 @@ public class PlayWithCpu {
                         System.out.println("You've already entered letter '" + letter.charAt(0) + "'");
                         System.out.print("Enter another letter: ");
                     } else {
-                        if (letter.length() == 1) {
+                        if (letter.length() == 1 && ((letter.charAt(0) >= 48 && letter.charAt(0) <= 57) || (letter.charAt(0) >= 97 && letter.charAt(0) <= 122))) {
                             isInputInvalid = false;
+                        } else if (letter.length() != 1) {
+                            System.out.print("Please enter only one character: ");
                         } else {
-                            System.out.print("Please enter only a letter: ");
+                            System.out.print("Please enter a letter/number: ");
                         }
                     }
                 }
@@ -114,7 +116,7 @@ public class PlayWithCpu {
                 if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("no")) {
                     isInputInvalid = false;
                 } else {
-                    System.out.print("Please enter a valid input: ");
+                    System.out.print("Please enter a valid input (yes/no): ");
                 }
             }
             while (isInputInvalid);
