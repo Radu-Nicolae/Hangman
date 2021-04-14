@@ -78,14 +78,12 @@ public class PlayFriend {
                     GameUtilities.printBlindWord(blindWordLetters);
                     System.out.print("\nEnter a letter: ");
                     firstTime = false;
-                }
-                else {
+                } else {
                     System.out.print("\nEnter a letter: ");
                 }
                 do {
-
                     letter = scn.next();
-                    if (enteredLetters.contains(letter.charAt(0))){
+                    if (enteredLetters.contains(letter.charAt(0))) {
                         System.out.println("You've already entered letter '" + letter.charAt(0) + "'");
                         System.out.print("Enter another letter: ");
                     } else {
@@ -149,10 +147,9 @@ public class PlayFriend {
 
             do {
                 input = scn.next();
-                if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("no")){
+                if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("no")) {
                     isInputInvalid = false;
-                }
-                else {
+                } else {
                     System.out.print("Please enter a valid input: ");
                 }
             }
@@ -160,7 +157,7 @@ public class PlayFriend {
 
             playAgain = input.equalsIgnoreCase("yes");
 
-            if (input.equalsIgnoreCase("yes")){
+            if (input.equalsIgnoreCase("yes")) {
                 indexes.clear();
                 blindWordLetters.clear();
                 wordLetters.clear();

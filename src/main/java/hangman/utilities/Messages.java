@@ -128,13 +128,13 @@ public class Messages {
 
     }
 
-    public static void youWon(){
+    public static void youWon() {
         System.out.println("\n<><><><><><><><><><><><><><><><>");
         System.out.println("<  Congratulations!! You won!  >");
         System.out.println("<><><><><><><><><><><><><><><><>");
     }
 
-    public static void goodBye(){
+    public static void goodBye() {
         System.out.println("\n\n");
         System.out.println("=================================");
         System.out.println("|  Thanks for playing Hangman!  |");

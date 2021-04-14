@@ -14,9 +14,8 @@ public class PlayWithCpu {
     static Scanner scn = new Scanner(System.in);
     static Random rnd = new Random();
 
-    public static void playWithCpu(){
-        boolean isInputInvalid = true;
-        boolean player1Starts;
+    public static void playWithCpu() {
+        boolean isInputInvalid;
         boolean isGameNotOver;
         boolean playAgain;
         boolean firstTime = true;
@@ -28,14 +27,12 @@ public class PlayWithCpu {
         List<Character> wordLetters = new ArrayList<>();
         List<Character> blindWordLetters = new ArrayList<>();
         List<Character> enteredLetters = new ArrayList<>();
-        List<Integer> indexes = new ArrayList<>();
         List<String> words = DataBase.getWords();
 
         do {
             int i = 1;
             do {
                 if (i == 1) {
-                    //todo here!!
                     intInput = rnd.nextInt(words.size()) + 1;
                     word = words.get(intInput);
                     wordLetters = GameUtilities.getSplitTheWord(word);
@@ -50,14 +47,13 @@ public class PlayWithCpu {
                     GameUtilities.printBlindWord(blindWordLetters);
                     System.out.print("\nEnter a letter: ");
                     firstTime = false;
-                }
-                else {
+                } else {
                     System.out.print("\nEnter a letter: ");
                 }
                 do {
 
                     letter = scn.next();
-                    if (enteredLetters.contains(letter.charAt(0))){
+                    if (enteredLetters.contains(letter.charAt(0))) {
                         System.out.println("You've already entered letter '" + letter.charAt(0) + "'");
                         System.out.print("Enter another letter: ");
                     } else {
@@ -71,13 +67,7 @@ public class PlayWithCpu {
                 while (isInputInvalid);
 
                 letter = letter.toLowerCase();
-                char lett = letter.charAt(0);
-
-                for (int j = 0; j < word.length(); j++) {
-                    if (lett == wordLetters.get(j)) {
-                        indexes.add(j);
-                    }
-                }
+                char lett;
 
                 lett = letter.charAt(0);
                 enteredLetters.add(lett);
@@ -121,10 +111,9 @@ public class PlayWithCpu {
 
             do {
                 input = scn.next();
-                if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("no")){
+                if (input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("no")) {
                     isInputInvalid = false;
-                }
-                else {
+                } else {
                     System.out.print("Please enter a valid input: ");
                 }
             }
@@ -132,8 +121,7 @@ public class PlayWithCpu {
 
             playAgain = input.equalsIgnoreCase("yes");
 
-            if (input.equalsIgnoreCase("yes")){
-                indexes.clear();
+            if (input.equalsIgnoreCase("yes")) {
                 blindWordLetters.clear();
                 wordLetters.clear();
                 enteredLetters.clear();

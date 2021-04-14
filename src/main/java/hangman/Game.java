@@ -10,7 +10,7 @@ public class Game {
 
     static Scanner scn = new Scanner(System.in);
 
-    public static void hangman(){
+    public static void hangman() {
         Messages.welcome();
         boolean isInputInvalid = true;
         String input;
@@ -22,20 +22,18 @@ public class Game {
 
         do {
             input = scn.next();
-            if (input.equalsIgnoreCase("1") || input.equalsIgnoreCase("2")){
+            if (input.equalsIgnoreCase("1") || input.equalsIgnoreCase("2")) {
                 isInputInvalid = false;
-            }
-            else {
+            } else {
                 System.out.println("Please enter a valid input!");
             }
         }
         while (isInputInvalid);
 
-        if (input.equalsIgnoreCase("1")){
+        if (input.equalsIgnoreCase("1")) {
             System.out.println("You have chosen to play against your friend!");
             PlayFriend.playWithFriend();
-        }
-        else {
+        } else {
             System.out.println("You have chosen to play against CPU!");
             PlayWithCpu.playWithCpu();
         }
