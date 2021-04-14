@@ -38,7 +38,7 @@ public class PlayFriend {
             int i = 1;
             do {
                 if (i == 1) {
-                    System.out.println("\nWho will guess first?");
+                    System.out.println("\nWho will guess?");
                     System.out.print("Your answer: ");
 
                     do {
@@ -54,7 +54,7 @@ public class PlayFriend {
 
                     if (player1Starts) {
                         System.out.println("\n" + player1Name + " please enter a word!");
-                        System.out.print("!Note: don't let " + player2Name + " see your word: ");
+                        System.out.print("!Note: don't let " + player2Name + " see your word");
                     } else {
                         System.out.println("\n" + player2Name + " please enter a word!");
                         System.out.print("!Note: don't let " + player1Name + " see your word: ");
@@ -86,11 +86,13 @@ public class PlayFriend {
                     if (enteredLetters.contains(letter.charAt(0))) {
                         System.out.println("You've already entered letter '" + letter.charAt(0) + "'");
                         System.out.print("Enter another letter: ");
-                    } else {
-                        if (letter.length() == 1) {
+                    }  else {
+                        if (letter.length() == 1 && ((letter.charAt(0) >= 48 && letter.charAt(0) <= 57) || (letter.charAt(0) >= 65 && letter.charAt(0) <= 122))) {
                             isInputInvalid = false;
+                        } else if (letter.length() != 1){
+                            System.out.print("Please enter only one character: ");
                         } else {
-                            System.out.print("Please enter only a letter: ");
+                            System.out.print("Please enter a letter/number:");
                         }
                     }
                 }
